@@ -70,6 +70,11 @@
             getDataType: function (guid) {
                 return umbRequestHelper.resourcePromise($http.get("/umbraco/backoffice/LeBlenderApi/DataType/GetPropertyEditors?guid=" + guid, { cache: true }), 'Failed to retrieve datatype');
             },
+            /*********************/
+            /*********************/
+            getDataTypeByAlias: function (alias) {
+                return umbRequestHelper.resourcePromise($http.get("/umbraco/backoffice/LeBlenderApi/DataType/GetPropertyEditors?alias=" + alias, { cache: true }), 'Failed to retrieve datatype');
+            },
 
         }
 

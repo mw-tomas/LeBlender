@@ -259,6 +259,22 @@ namespace Lecoati.LeBlender.Extension
                     return dtd;
                 });
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="alias"></param>
+        /// <returns></returns>
+        internal static IDataTypeDefinition GetTargetDataTypeDefinition(string alias)
+        {
+            return (IDataTypeDefinition)ApplicationContext.Current.ApplicationCache.RuntimeCache.GetCacheItem(
+                "LeBlender_GetTargetDataTypeDefinition_" + alias,
+                () =>
+                {
+                    var services = ApplicationContext.Current.Services;
+                    var dtd = services.DataTypeService.GetDataTypeDefinitionByPropertyEditorAlias(alias).FirstOrDefault();
+                    return dtd;
+                });
+        }
 
         #endregion
 

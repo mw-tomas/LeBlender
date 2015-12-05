@@ -33,7 +33,7 @@ namespace Lecoati.LeBlender.Extension.Controllers
             return dataTypes
                 .Where(r => !notAllowed.Contains(r.PropertyEditorAlias.ToString()))
                 .OrderBy(r => r.Name)
-                .Select(t => new { guid = t.Key, name = t.Name });
+                .Select(t => new { guid = t.Key, name = t.Name, PropertyEditorAlias = t.PropertyEditorAlias });
         }
 
         // Get property editor properties
@@ -41,6 +41,22 @@ namespace Lecoati.LeBlender.Extension.Controllers
         {
 
             var dataType = Services.DataTypeService.GetDataTypeDefinitionById(guid);
+            if (dataType == null)
+            {
+                throw new System.Web.Http.HttpResponseException(System.Net.HttpStatusCode.NotFound);
+            }
+            var dataTypeDisplay = AutoMapper.Mapper.Map<IDataTypeDefinition, Umbraco.Web.Models.ContentEditing.DataTypeDisplay>(dataType);
+            var propertyEditor = global::Umbraco.Core.PropertyEditors.PropertyEditorResolver.Current.PropertyEditors.Where(r => r.Alias == dataTypeDisplay.SelectedEditor).First();
+
+            return new { defaultPreValues = propertyEditor.DefaultPreValues, alias = propertyEditor.Alias, view = propertyEditor.ValueEditor.View, preValues = dataTypeDisplay.PreValues };
+
+        }
+
+
+        // Get property editor properties
+        public object GetPropertyEditors(string alias)
+        {
+            var dataType = Services.DataTypeService.GetDataTypeDefinitionByPropertyEditorAlias(alias).FirstOrDefault();
             if (dataType == null)
             {
                 throw new System.Web.Http.HttpResponseException(System.Net.HttpStatusCode.NotFound);
