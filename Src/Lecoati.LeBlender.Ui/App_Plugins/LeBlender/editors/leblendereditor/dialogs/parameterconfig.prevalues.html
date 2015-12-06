@@ -13,7 +13,7 @@
                 <div class="control-group umb-control-group">
 
                     <umb-control-group label="Data type" description="">
-                        <select ng-options="datatype.guid as datatype.name for datatype in availableDataTypes" ng-model="model.value.dataType" required></select>
+                        <select ng-options="datatype.PropertyEditorAlias as datatype.name for PropertyEditorAlias in availableDataTypes" ng-model="model.value.dataType" required></select>
                     </umb-control-group>
 
                     <umb-control-group label="Name" description="">
