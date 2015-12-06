@@ -169,7 +169,6 @@
             $scope.model.value = {
                 name: "",
                 alias: "",
-                PropertyEditorAlias: "",
             };
         }
 
