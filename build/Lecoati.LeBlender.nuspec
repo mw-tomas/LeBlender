@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <metadata>
-        <id>Lecoati.LeBlender</id>
+        <id>Lecoati.LeBlender.AliasIdentifier</id>
         <version>1.0.8.2</version>
-        <title>Umbraco LeBlender</title>
-        <authors>LECOATI</authors>
+        <title>Umbraco LeBlender property alias version</title>
+        <authors>LECOATI, Cozened</authors>
         <owners>LECOATI</owners>
         <projectUrl>http://www.lecoati.com/</projectUrl>
-        <description>Umbarco LeBlender</description>
-        <summary>Umbarco LeBlender</summary>
+        <description>Umbarco LeBlender using property alias identifiers </description>
+        <summary>Umbarco LeBlender  property alias version</summary>
         <language>en-US</language>
 		<requireLicenseAcceptance>false</requireLicenseAcceptance>
-        <tags>LECOATI</tags>
+        <tags>LECOATI Cozened</tags>
 		<iconUrl>http://lecoati.com/images/Logo_BlenderGrid.png</iconUrl>
 		<dependencies />
     </metadata>
