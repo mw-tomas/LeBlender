@@ -153,10 +153,7 @@
 
         // Init availableDataTypes
         $scope.availableDataTypes = angular.copy($scope.dialogData.availableDataTypes);
-        $scope.availableDataTypes.push({
-            guid: "",
-            name: "- - custom - -"
-        })
+  
 
         // Extend model
         angular.extend($scope, {
