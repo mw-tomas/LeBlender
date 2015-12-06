@@ -69,7 +69,7 @@
     	        var newProperty = {
     	            value: null,
     	            dataTypeGuid: editor.dataType,
-    	            dataTypeAlias: editor.dataTypeAlias,
+    	            PropertyEditorAlias: editor.PropertyEditorAlias,
     	            editorAlias: editor.alias,
     	            editorName: editor.name,
     	            $editor: editor,
@@ -127,15 +127,15 @@
     	                if (property) {
     	                    property.$editor = editor;
     	                    property.$order = order;
-    	                    if (!property.dataTypeAlias)
-    	                        property.dataTypeAlias = editor.dataTypeAlias;
+    	                    if (!property.dataTypeGuid)
+    	                        property.dataTypeGuid = editor.dataType;
     	                }
     	                else {
     	                    var newProperty = {
     	                        value: null,
     	                        dataTypeGuid: editor.dataType,
     	                        editorAlias: editor.alias,
-    	                        dataTypeAlias: editor.dataTypeAlias,
+    	                        PropertyEditorAlias: editor.PropertyEditorAlias,
     	                        editorName: editor.name,
     	                        $editor: editor,
     	                        $order: order,
@@ -220,8 +220,8 @@
     	                    }
     	                }
     	                
-    	                if (editor.dataTypeAlias && !editor.$isLoaded) {
-    	                    LeBlenderRequestHelper.getDataTypeByAlias(editor.dataTypeAlias).then(function (data) {
+    	                if (editor.PropertyEditorAlias && !editor.$isLoaded) {
+    	                    LeBlenderRequestHelper.getDataTypeByAlias(editor.PropertyEditorAlias).then(function (data) {
     	                        
                                 // Get config prevalues
     	                        var configObj = {};
