@@ -33,8 +33,16 @@ namespace Lecoati.LeBlender.Extension.Models
         {
 
             //var targetContentType = Helper.GetTargetContentType();
-            var targetDataType = Helper.GetTargetDataTypeDefinition(PropertyEditorAlias);
 
+            IDataTypeDefinition targetDataType = null;
+            if (!string.IsNullOrEmpty(PropertyEditorAlias))
+            {
+                targetDataType = Helper.GetTargetDataTypeDefinition(PropertyEditorAlias);
+            }
+            else
+            {
+                targetDataType = Helper.GetTargetDataTypeDefinition(Guid.Parse(DataTypeGuid));
+            }
             var properyType = new PublishedPropertyType(Helper.GetTargetContentType(),
                 new PropertyType(new DataTypeDefinition(-1, targetDataType.PropertyEditorAlias)
                 {

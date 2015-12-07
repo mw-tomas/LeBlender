@@ -221,7 +221,7 @@
     	                }
     	                
     	                if (editor.PropertyEditorAlias && !editor.$isLoaded) {
-    	                    LeBlenderRequestHelper.getDataTypeByAlias(editor.PropertyEditorAlias).then(function (data) {
+    	                    LeBlenderRequestHelper.getDataTypeByAlias(editor.PropertyEditorAlias,editor.dataType).then(function (data) {
     	                        
                                 // Get config prevalues
     	                        var configObj = {};
